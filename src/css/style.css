@@ -1,0 +1,10 @@
+section {
+	margin: auto;
+	max-width: 980px;
+}
+
+#map {height: 400px;}
+
+#trajet>div {
+	display: inline-block;
+}
