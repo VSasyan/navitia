@@ -24,14 +24,32 @@ document.addEventListener("DOMContentLoaded", function() {
 		else {to.setLatlng(e.latlng);}
 	});
 
+	$('#map').on('resize', function() {console.log('resize');map.invalidateSize();});
+
 	$('#chercher').click(function() {
 		if (!(from.getId() === false) && !(to.getId() == false)) {
+			$('#itineraire').html('').addClass('load');
 			navitia.journeys({
 				from : from.getId(),
 				to : to.getId(),
 				datetime : '20160209T0830'
 			}, function(retour) {
-				console.log(retour);
+				var r = JSON.parse(retour);
+				var html = '';
+
+				// Changer de propositions :
+				html += '<div id="links">';
+					html += view_link(r.api, 'prev');
+					html += view_link(r.api, 'next');
+				html += '</div>';
+
+				// Afficher le trajet :
+				html += '<div id="journeys">';
+					html += view_journeys(r.api);
+				html += '</div>';
+
+				$('#itineraire').html(html).removeClass('load');
+				map.invalidateSize();
 			});
 		}
 	});

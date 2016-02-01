@@ -11,18 +11,23 @@
 		<script type="text/javascript" src="js/script.js"></script>
 		<script type="text/javascript" src="js/class/Navitia.js"></script>
 		<script type="text/javascript" src="js/class/Adresse.js"></script>
+		<script type="text/javascript" src="js/view/journeys.js"></script>
 	</head>
 	<body>
 		<section>
 			<h1>Navitia</h1>
-			<div id="map"></div>
-			<div id="trajet">
-				<div class="from adresse"><input value="" placeholder="Adresse de départ" title="Adresse de départ" /></div>
-				<div class="vers">==></div>
-				<div class="to adresse"><input value="" placeholder="Adresse de destination" title="Adresse de destination" /></div>
-				<div class="chercher"><button id="chercher">Chercher</button></div>
+		</section>
+		<section>
+			<div id="form">
+				<div id="trajet">
+					<div class="from adresse"><input value="" placeholder="Adresse de départ" title="Adresse de départ" /></div>
+					<div class="vers">==></div>
+					<div class="to adresse"><input value="" placeholder="Adresse de destination" title="Adresse de destination" /></div>
+					<div class="chercher"><button id="chercher">Chercher</button></div>
+				</div>
+				<div id="itineraire"></div>
 			</div>
-			<div id="itineraire"></div>
+			<div id="map"></div>
 		</section>
 	</body>
 </html>

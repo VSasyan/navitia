@@ -3,8 +3,65 @@ section {
 	max-width: 980px;
 }
 
-#map {height: 400px;}
+#form, #map {
+	display: table-cell;
+}
 
-#trajet>div {
+#form {
+	width: 30%;
+	min-width: 300px;
+}
+#map {
+	height: 400px;
+}
+
+#trajet div.adresse {
+	padding: 5px;
+	padding-left: 20px;
+	padding-right: 20px;
+	background-size: 14px 14px;
+	background-repeat: no-repeat;
+	background-position: 2px center;
+}
+#trajet div.from {background-image: url('../img/form_from.svg');}
+#trajet div.to {background-image: url('../img/form_to.svg');}
+#trajet div.adresse.load {background-image: url('../img/loader.gif');}
+
+#trajet div.adresse input {
 	display: inline-block;
+	width: 100%;
+}
+
+#trajet div.vers {
+	display: none;
+}
+
+#trajet div.chercher {text-align: center;}
+
+#itineraire.load {
+	background-image: url('../img/loader.gif');
+	background-size: 32px 32px;
+	background-repeat: no-repeat;
+	background-position: center; center;
+	height: 32px;
+}
+
+#itineraire .journey {padding: 10px;}
+#itineraire .journey h3 {
+	margin: 0;
+}
+#itineraire .journey .info {display: table; width: 100%;}
+#itineraire .journey .info>div {display: table-cell;}
+#itineraire .journey .info>div.duration {text-align: center;}
+#itineraire .journey .info>div.arrival_date_time {text-align: right;}}
+
+#itineraire .journey .details>div {
+	margin-top: 15px;
+	clear: both;
+}
+#itineraire .journey .details .section p {
+	margin: 0;
+}
+#itineraire .journey .details .section p span.time {
+	float: right;
 }

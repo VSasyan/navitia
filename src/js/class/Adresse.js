@@ -5,6 +5,7 @@ var Adresse = function(navitia, name, label, icon) {
 	this.icon = icon; // marker-icon-red / marker-icon-green
 
 	this.$input = $('.'+name+' input');
+	this.$div = $('div.adresse.'+name);
 	this.latlng = false;
 	this.id = false;
 };
@@ -26,7 +27,9 @@ Adresse.prototype.setLatlng = function(latlng) {
 		var r = JSON.parse(retour);
 		that.setId(r.api.address.id);
 		that.$input.val(r.api.address.label);
+		that.$div.removeClass('load');
 	});
+	that.$div.addClass('load');
 };
 
 Adresse.prototype.setId = function(id) {
