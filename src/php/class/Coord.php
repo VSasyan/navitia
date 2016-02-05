@@ -1,43 +1,50 @@
 <?php
 
 /**
-* 
+* Class to manage coordinates
 */
 class Coord extends Hydrate {
-	protected $lat = 0;
-	protected $lng = 0;
+	public $lat = 0;
+	public $lon = 0;
 
 	/**
-		CONSTRUCTORS
+		CONSTRUCTOR
 	**/
-	public function __construct($lat, $lng) {
-		$this->lat = $lat;
-		$this->lng = $lng;
+	public function __construct($params = false) {
+		if ($params != false) {
+			$this->hydrate($params);
+		}
 	}
 
-	public function __construct($coor) {
-		$this->lat = $coor['lat'];
-		$this->lng = $coor['lng'];
+	/**
+		SETTERS
+	**/
+	public function setLat($lat) {
+		$this->lat = $lat;
+	}
+
+	public function setLon($lon) {
+		$this->lon = $lon;
 	}
 
 	/**
 		GETTERS
 	**/
-	public getLat() {
+	public function getLat() {
 		return $this->lat;
 	}
 
-	public getLat() {
-		return $this->lng;
+	public function getLon() {
+		return $this->lon;
 	}
 
 	/**
 		JSON
 	**/
-	public getJSON() {
+	public function getJSON() {
 		return array(
-			'lat' => $this->lat
-			'lng' => $this->lng
+			'lat' => $this->lat,
+			'lon' => $this->lon
 		);
 	}
 }
