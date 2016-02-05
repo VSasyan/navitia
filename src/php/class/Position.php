@@ -24,19 +24,36 @@ class Position extends Hydrate {
 	/**
 		LOADERS
 	**/
-	public function load($uri) {
+	public function load_uri($uri) {
 		$req = 'https://' . KEY . '@api.navitia.io/v1/coord/' . $uri;
 		$data = file_get_contents($req, false);
 		$api = json_decode($data, true);
+		$this->load_api($api);
+	}
 
-		$params = array(
-			'house_number' => $api['address']['house_number'],
-			'name' => $api['address']['name'],
-			'coord' => new Coord($api['address']['coord']),
-			'region' => $api['address']['administrative_regions'][0]['name']
-		);
+	public function load_api($api) {
+		if (array_key_exists('embedded_type', $api)) {
+			if ($api['embedded_type'] == 'address') {
+				$params = array(
+					'name' => $api['address']['house_number'] . ', ' . $api['address']['name'],
+					'coord' => new Coord($api['address']['coord']),
+					'region' => $api['address']['administrative_regions'][0]['name'],
+					'id' => $api['id']
+				);
+			} elseif ($api['embedded_type'] == 'stop_point') {
+				$params = array(
+					'house_number' => '',
+					'name' => $api['stop_point']['name'],
+					'coord' => new Coord($api['stop_point']['coord']),
+					'region' => $api['stop_point']['administrative_regions'][0]['name'],
+					'id' => $api['id']
+				);
+			}
 
-		$this->hydrate($params);
+			$this->hydrate($params);
+		} else {
+			echo 'ERROR_Position_load_api: |' . json_encode($api) . '|';
+		}
 	}
 
 	/**

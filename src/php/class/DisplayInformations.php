@@ -15,92 +15,114 @@ class DisplayInformations extends Hydrate {
 	protected $equipments = array();
 
 	/**
-		CONSTRUCTORS
+		CONSTRUCTOR
 	**/
-	public function __construct() {}
+	public function __construct($params = false) {
+		if ($params != false) {
+			$this->hydrate($params);
+		}
+	}
+
+	/**
+		LOADERS
+	**/
+	public function load_api($api) {
+		if (array_key_exists('network', $api)) {$this->setNetwork($api['network']);}
+		if (array_key_exists('direction', $api)) {$this->setDirection($api['direction']);}
+		if (array_key_exists('commercial_mode', $api)) {$this->setCommercialMode($api['commercial_mode']);}
+		if (array_key_exists('physical_mode', $api)) {$this->setPhysicalMode($api['physical_mode']);}
+		if (array_key_exists('label', $api)) {$this->setLabel($api['label']);}
+		if (array_key_exists('color', $api)) {$this->setColor($api['color']);}
+		if (array_key_exists('code', $api)) {$this->setCode($api['code']);}
+		if (array_key_exists('description', $api)) {$this->setDescription($api['description']);}
+		if (array_key_exists('equipments', $api)) {$this->setEquipments($api['equipments']);}
+		foreach ($api['equipments'] as $equipment) {
+			$this->equipments[] = $equipment;
+		}
+	}
 
 	/**
 		SETTERS
 	**/
-	public setNetwork($network) {
+	public function setNetwork($network) {
 		$this->network = $network;
 	}
 
-	public setDirection($direction) {
+	public function setDirection($direction) {
 		$this->direction = $direction;
 	}
 
-	public setCommercialMode($commercialMode) {
+	public function setCommercialMode($commercialMode) {
 		$this->commercialMode = $commercialMode;
 	}
 
-	public setPhysicalMode($physicalMode) {
+	public function setPhysicalMode($physicalMode) {
 		$this->physicalMode = $physicalMode;
 	}
 
-	public setLabel($label) {
+	public function setLabel($label) {
 		$this->label = $label;
 	}
 
-	public setColor($color) {
+	public function setColor($color) {
 		$this->color = $color;
 	}
 
-	public setCode($code) {
+	public function setCode($code) {
 		$this->code = $code;
 	}
 
-	public setDescription($description) {
+	public function setDescription($description) {
 		$this->description = $description;
 	}
 
-	public setEquipments($equipments) {
+	public function setEquipments($equipments) {
 		$this->equipments = $equipments;
 	}
 
 	/**
 		GETTERS
 	**/
-	public getNetwork() {
+	public function getNetwork() {
 		return $this->network;
 	}
 
-	public getDirection() {
+	public function getDirection() {
 		return $this->direction;
 	}
 
-	public getCommercialMode() {
+	public function getCommercialMode() {
 		return $this->commercialMode;
 	}
 
-	public getPhysicalMode() {
+	public function getPhysicalMode() {
 		return $this->physicalMode;
 	}
 
-	public getLabel() {
+	public function getLabel() {
 		return $this->label;
 	}
 
-	public getColor() {
+	public function getColor() {
 		return $this->color;
 	}
 
-	public getCode() {
+	public function getCode() {
 		return $this->code;
 	}
 
-	public getDescription() {
+	public function getDescription() {
 		return $this->description;
 	}
 
-	public getEquipments() {
+	public function getEquipments() {
 		return $this->equipments;
 	}
 
 	/**
 		JSON
 	**/
-	public getJSON() {
+	public function getJSON() {
 		return array(
 			'network' => $this->network,
 			'direction' => $this->direction,

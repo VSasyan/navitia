@@ -10,10 +10,10 @@ ob_start();
 
 $class = ucwords($_GET['c']);
 $request = $_GET['r'];
-print_r($class);
-print_r($request);
+//print_r($class);
+//print_r($request);
 $element = new $class();
-$element->load($request);
+$element->load_uri($request);
 
 $debug = ob_get_clean();
 
