@@ -4,14 +4,15 @@
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8">
 		<title>Navitia</title>
-		<link rel="stylesheet" type="text/css" href="css/style.css">
-		<link rel="stylesheet" type="text/css" href="css//leaflet.css" />
-		<script type="text/javascript" src="js/jquery-2.2.0.min.js"></script>
-		<script typz="text/javascript" src="js/leaflet.js"></script>
-		<script type="text/javascript" src="js/script.js"></script>
-		<script type="text/javascript" src="js/class/Navitia.js"></script>
-		<script type="text/javascript" src="js/class/Adresse.js"></script>
-		<script type="text/javascript" src="js/view/journeys.js"></script>
+		<link rel="stylesheet" type="text/css" href="<?php echo asset_url();?>css/style.css">
+		<link rel="stylesheet" type="text/css" href="<?php echo asset_url();?>css/leaflet.css" />
+		<link rel="stylesheet" type="text/css" href="<?php echo asset_url();?>font-awesome-4.5.0/css/font-awesome.min.css" />
+		<script type="text/javascript" src="<?php echo asset_url();?>js/jquery-2.2.0.min.js"></script>
+		<script typz="text/javascript" src="<?php echo asset_url();?>js/leaflet.js"></script>
+		<script type="text/javascript" src="<?php echo asset_url();?>js/script.js"></script>
+		<script type="text/javascript" src="<?php echo asset_url();?>js/class/Navitia.js"></script>
+		<script type="text/javascript" src="<?php echo asset_url();?>js/class/Adresse.js"></script>
+		<script type="text/javascript" src="<?php echo asset_url();?>js/view/journeys.js"></script>
 	</head>
 	<body>
 		<section>
