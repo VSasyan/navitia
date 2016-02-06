@@ -7,6 +7,7 @@
 class Journeys extends Hydrate {
 	protected $links = array();
 	protected $journeys = array();
+	protected $publishers = array();
 
 	/**
 		CONSTRUCTOR
@@ -34,6 +35,9 @@ class Journeys extends Hydrate {
 			$journey->load_api($j);
 			$this->journeys[] = $journey;
 		}
+		foreach ($api['feed_publishers'] as $p) {
+			$this->publishers[] = $p['id'];
+		}
 	}
 
 	/**
@@ -47,6 +51,10 @@ class Journeys extends Hydrate {
 		$this->journeys = $journeys;
 	}
 
+	public function setPublishers($publishers) {
+		$this->publishers = $publishers;
+	}
+
 	/**
 		GETTERS
 	**/
@@ -56,6 +64,10 @@ class Journeys extends Hydrate {
 
 	public function getJourneys() {
 		return $this->journeys;
+	}
+
+	public function getPublishers() {
+		return $this->publishers;
 	}
 
 	/**
@@ -70,7 +82,8 @@ class Journeys extends Hydrate {
 	public function getJSON() {
 		return array(
 			'links' => $this->links,
-			'journeys' => $this->getJourneysJSON()
+			'journeys' => $this->getJourneysJSON(),
+			'publishers' => $this->publishers
 		);
 	}
 
@@ -78,7 +91,5 @@ class Journeys extends Hydrate {
 		return json_encode($this->getJSON());
 	}
 }
-
-?>
 
 ?>

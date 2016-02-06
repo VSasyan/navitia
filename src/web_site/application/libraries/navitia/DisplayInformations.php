@@ -138,5 +138,3 @@ class DisplayInformations extends Hydrate {
 }
 
 ?>
-
-?>

@@ -7,6 +7,7 @@
 		<link rel="stylesheet" type="text/css" href="<?php echo asset_url();?>css/style.css">
 		<link rel="stylesheet" type="text/css" href="<?php echo asset_url();?>css/leaflet.css" />
 		<link rel="stylesheet" type="text/css" href="<?php echo asset_url();?>font-awesome-4.5.0/css/font-awesome.min.css" />
+		<link rel="stylesheet" type="text/css" href="<?php echo asset_url();?>entities/fr-idf/fr-idf.css" />
 		<script type="text/javascript" src="<?php echo asset_url();?>js/jquery-2.2.0.min.js"></script>
 		<script typz="text/javascript" src="<?php echo asset_url();?>js/leaflet.js"></script>
 		<script type="text/javascript" src="<?php echo asset_url();?>js/script.js"></script>
@@ -26,7 +27,7 @@
 					<div class="to adresse"><input value="" placeholder="Adresse de destination" title="Adresse de destination" /></div>
 					<div class="chercher"><button id="chercher">Chercher</button></div>
 				</div>
-				<div id="itineraire"></div>
+				<div id="journeys"></div>
 			</div>
 			<div id="map"></div>
 		</section>

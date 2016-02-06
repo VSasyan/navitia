@@ -1,0 +1,34 @@
+.journeys.fr-idf .journey .sections div.section.network_METRO div.time span.icon::before {
+	content: '';
+	background-image: url('metro.svg');
+	background-size: 16px 16px;
+	width: 16px;
+	height: 16px;
+	display: inline-block;
+}
+
+.journeys.fr-idf .journey .sections div.section.network_METRO div.time span.icon::after {
+	content: '';
+	background-size: 16px 16px;
+	width: 16px;
+	height: 16px;
+	display: none;
+}
+
+.journeys.fr-idf .journey .sections div.section.network_METRO.code_1 div.time span.icon::after {background-image: url('1.svg'); display: inline-block;}
+.journeys.fr-idf .journey .sections div.section.network_METRO.code_2 div.time span.icon::after {background-image: url('2.svg'); display: inline-block;}
+.journeys.fr-idf .journey .sections div.section.network_METRO.code_3 div.time span.icon::after {background-image: url('3.svg'); display: inline-block;}
+.journeys.fr-idf .journey .sections div.section.network_METRO.code_3bis div.time span.icon::after {background-image: url('3bis.svg'); display: inline-block;}
+.journeys.fr-idf .journey .sections div.section.network_METRO.code_4 div.time span.icon::after {background-image: url('4.svg'); display: inline-block;}
+.journeys.fr-idf .journey .sections div.section.network_METRO.code_5 div.time span.icon::after {background-image: url('5.svg'); display: inline-block;}
+.journeys.fr-idf .journey .sections div.section.network_METRO.code_6 div.time span.icon::after {background-image: url('6.svg'); display: inline-block;}
+.journeys.fr-idf .journey .sections div.section.network_METRO.code_7 div.time span.icon::after {background-image: url('7.svg'); display: inline-block;}
+.journeys.fr-idf .journey .sections div.section.network_METRO.code_7bis div.time span.icon::after {background-image: url('7bis.svg'); display: inline-block;}
+.journeys.fr-idf .journey .sections div.section.network_METRO.code_8 div.time span.icon::after {background-image: url('8.svg'); display: inline-block;}
+.journeys.fr-idf .journey .sections div.section.network_METRO.code_9 div.time span.icon::after {background-image: url('9.svg'); display: inline-block;}
+.journeys.fr-idf .journey .sections div.section.network_METRO.code_10 div.time span.icon::after {background-image: url('10.svg'); display: inline-block;}
+.journeys.fr-idf .journey .sections div.section.network_METRO.code_11 div.time span.icon::after {background-image: url('11.svg'); display: inline-block;}
+.journeys.fr-idf .journey .sections div.section.network_METRO.code_12 div.time span.icon::after {background-image: url('12.svg'); display: inline-block;}
+.journeys.fr-idf .journey .sections div.section.network_METRO.code_13 div.time span.icon::after {background-image: url('13.svg'); display: inline-block;}
+.journeys.fr-idf .journey .sections div.section.network_METRO.code_14 div.time span.icon::after {background-image: url('14.svg'); display: inline-block;}
+.journeys.fr-idf .journey .sections div.section.network_METRO.code_15 div.time span.icon::after {background-image: url('15.svg'); display: inline-block;}

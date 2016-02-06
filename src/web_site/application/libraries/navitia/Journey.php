@@ -6,6 +6,7 @@
 */
 class Journey extends Hydrate {
 	protected $duration = 0;
+	protected $duration_walking = 0;
 	protected $nb_transfers = 0;
 	protected $departure_date_time = 0;
 	protected $arrival_date_time = 0;
@@ -39,6 +40,9 @@ class Journey extends Hydrate {
 	public function setDuration($duration) {
 		$this->duration = $duration;
 	}
+	public function setDuration_walking($duration_walking) {
+		$this->duration_walking = $duration_walking;
+	}
 
 	public function setNb_transfers($nb_transfers) {
 		$this->nb_transfers = $nb_transfers;
@@ -61,12 +65,15 @@ class Journey extends Hydrate {
 	**/
 	public function addSection($s, $type = true) {
 		if ($type === true) {
-			$this->sections[] = $s;
+			$section = $s;
 		} elseif ($type == 'api') {
 			$section = new Section();
 			$section->load_api($s);
-			$this->sections[] = $section;
 		}
+		if ($section->getMode() == 'walking') {
+			$this->duration_walking += $section->getDuration();
+		}
+		$this->sections[] = $section;
 	}
 
 	/**
@@ -74,6 +81,9 @@ class Journey extends Hydrate {
 	**/
 	public function getDuration() {
 		return $this->duration;
+	}
+	public function getDuration_walking() {
+		return $this->duration_walking;
 	}
 
 	public function getNb_transfers() {
@@ -103,6 +113,7 @@ class Journey extends Hydrate {
 	public function getJSON() {
 		return array(
 			'duration' => $this->duration,
+			'duration_walking' => $this->duration_walking,
 			'nb_transfers' => $this->nb_transfers,
 			'departure_date_time' => $this->departure_date_time,
 			'arrival_date_time' => $this->arrival_date_time,
@@ -110,7 +121,5 @@ class Journey extends Hydrate {
 		);
 	}
 }
-
-?>
 
 ?>

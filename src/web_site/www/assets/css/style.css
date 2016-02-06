@@ -38,7 +38,7 @@ section {
 
 #trajet div.chercher {text-align: center;}
 
-#itineraire.load {
+.journeys.load {
 	background-image: url('../img/loader.gif');
 	background-size: 32px 32px;
 	background-repeat: no-repeat;
@@ -46,22 +46,61 @@ section {
 	height: 32px;
 }
 
-#itineraire .journey {padding: 10px;}
-#itineraire .journey h3 {
-	margin: 0;
+.journeys .journey {padding: 10px;}
+.journeys .journey h3 {margin: 0;}
+.journeys .journey .sumup {display: table; width: 100%;}
+.journeys .journey .sumup>p {
+	display: table-cell;
+	padding-left: 25px;
 }
-#itineraire .journey .info {display: table; width: 100%;}
-#itineraire .journey .info>div {display: table-cell;}
-#itineraire .journey .info>div.duration {text-align: center;}
-#itineraire .journey .info>div.arrival_date_time {text-align: right;}}
+.journeys .journey .sumup>p span {display: block;}
+.journeys .journey .sumup>p .main {font-weight: bold;}
+.journeys .journey .sumup>p .second {text-align: right;}
 
-#itineraire .journey .details>div {
+.journeys .journey .sections div.section {
 	margin-top: 15px;
-	clear: both;
+	display: table;
 }
-#itineraire .journey .details .section p {
-	margin: 0;
+.journeys .journey .sections div.section div {display: table-cell;}
+.journeys .journey .sections div.section div span {display: block;}
+
+.journeys .journey .sections div.section div.time {
+	text-align: center;
 }
-#itineraire .journey .details .section p span.time {
-	float: right;
+.journeys .journey .sections div.section.network_METRO div.time span.icon::before {
+	content: '\f239';
+	font-family: 'FontAwesome';
 }
+
+.journeys .journey .sections div.section div.road {
+	width: 10px;
+	text-align: center;
+	padding-left: 3px;
+	padding-right: 3px;
+}
+.journeys .journey .sections div.section div.road span.circle {
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	border-radius: 5px;
+}
+.journeys .journey .sections div.section div.road span.line {
+	display: inline-block;
+	height: 50px;
+	border: 2px;
+	border-style: solid;
+}
+.journeys .journey .sections div.section div.road span.line.dashed {border-style: dashed;}
+
+.journeys .journey .sections div.section div.info {
+	padding: 10px;
+	background-color: #ddd;
+	border-radius: 20px;
+}
+.journeys .journey .sections div.section div.info span.direction::before {
+	content: '\f18e';
+	font-family: 'FontAwesome';
+	margin-right: 10px;
+}
+
+.journeys .links_journeys {display: none;}

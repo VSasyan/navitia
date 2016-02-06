@@ -6,4 +6,11 @@ if ( ! function_exists('asset_url()')) {
 	}
 }
 
+if(!function_exists('view_loader')){
+	function view_loader($view, $vars=array(), $output = true){
+		$CI = &get_instance();
+		return $CI->load->view($view, $vars, $output);
+	}
+}
+
 ?>

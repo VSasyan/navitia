@@ -193,8 +193,8 @@ class Section extends Hydrate {
 			'duration' => $this->duration,
 			'departure_date_time' => $this->departure_date_time,
 			'arrival_date_time' => $this->arrival_date_time,
-			'from' => $this->from,
-			'to' => $this->to,
+			'from' => $this->from->getJSON(),
+			'to' => $this->to->getJSON(),
 			'links' => $this->links,
 			'geojson' => $this->geojson,
 			'transferType' => $this->transferType,
@@ -204,7 +204,5 @@ class Section extends Hydrate {
 		);
 	}
 }
-
-?>
 
 ?>
