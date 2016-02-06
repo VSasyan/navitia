@@ -13,4 +13,14 @@ if(!function_exists('view_loader')){
 	}
 }
 
+if(!function_exists('array_uri')){
+	function array_uri($array) {
+		$uri = '';
+		foreach ($array as $key => $value) {
+			$uri .= '&' . $key . '=' . $value;
+		}
+		return substr($uri, 1);
+	}
+}
+
 ?>

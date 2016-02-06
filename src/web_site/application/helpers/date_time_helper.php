@@ -42,8 +42,13 @@ if(!function_exists('duration')){
 		}
 		$r = '';
 		$r .= ($values[0] > 1 ? $values[0] . ' jours ' : '');
-		$r .= ($values[1] > 1 ? $values[1] . ' h ' : '') . ($values[2] > 1 ? $values[2] . ' min ' : '');
-		$r .= ($values[2] > 1 && $precision? $values[2] . ' s' : '');
+		$r .= ($values[1] > 1 ? $values[1] . ' h ' : '');
+		if ($precision === true) {
+			$r .= ($values[2] > 1 ? $values[2] . ' min ' : '');
+			$r .= $values[2] . ' s';
+		} else {
+			$r .= ceil($values[2] + $values[3] / 60) . ' min';
+		}
 		return $r;
 	}
 }

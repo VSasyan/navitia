@@ -21,21 +21,18 @@ class Navitia extends CI_Controller {
 		$position = new Position();
 		$position->load_uri($uri);
 
-		// view
-		//$html = '';
-
-		$json = array('json' => array(
-			'api' => $position->toJSON(),
+		$data = array(
+			'api' => $position->getJSON(),
 			'html' => ''
-		));
+		);
 
-		$this->load->view('json', $json);
+		$this->load->view('json', array('json' => json_encode($data)));
 	}
 
 	/**
 	 * Journeys request
 	 */
-	public function journeys($uri) {
+	public function journeys($b64) {
 		$this->load->library('navitia/Hydrate');
 		$this->load->library('navitia/Coord');
 		$this->load->library('navitia/Position');
@@ -45,13 +42,15 @@ class Navitia extends CI_Controller {
 		$this->load->library('navitia/Section');
 		$this->load->helper('journeys');
 
+		$uri = array_uri(json_decode(base64_decode($b64, true)));
+
 		$journeys = new Journeys();
 		$journeys->load_uri($uri);
 
 		$journeys_json = $journeys->getJSON();
 
 		$data = array(
-			'api' => json_encode($journeys_json),
+			'api' => $journeys_json,
 			'html' => view_journeys($journeys_json)
 		);
 

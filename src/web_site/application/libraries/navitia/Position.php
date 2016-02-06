@@ -42,8 +42,9 @@ class Position extends Hydrate {
 			return false;
 		}
 		if ($type == 'address') {
+			$hn = $api['address']['house_number'];
 			$params = array(
-				'name' => $api['address']['house_number'] . ', ' . $api['address']['name'],
+				'name' => ($hn != 0 ? $hn . ', ' : '') . $api['address']['name'],
 				'coord' => new Coord($api['address']['coord']),
 				'region' => $api['address']['administrative_regions'][0]['name'],
 				'id' => $api['id']

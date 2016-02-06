@@ -6,12 +6,12 @@ var navitia;
 document.addEventListener("DOMContentLoaded", function() {
 	navitia = new Navitia('http://localhost/navitia/web_site/www/index.php/navitia/');
 	to = new Adresse(navitia, 'to', 'Arrivée', L.icon({
-		iconUrl: 'js/images/marker-icon-red.png',
-		iconRetinaUrl: 'js/images/marker-icon-red-x2.png'
+		iconUrl: 'http://localhost/navitia/web_site/www/assets/js/images/marker-icon-red.png',
+		iconRetinaUrl: 'http://localhost/navitia/web_site/www/assets/js/images/marker-icon-red-x2.png'
 	}));
 	from = new Adresse(navitia, 'from', 'Départ', L.icon({
-		iconUrl: 'js/images/marker-icon-green.png',
-		iconRetinaUrl: 'js/images/marker-icon-green-x2.png'
+		iconUrl: 'http://localhost/navitia/web_site/www/assets/js/images/marker-icon-green.png',
+		iconRetinaUrl: 'http://localhost/navitia/web_site/www/assets/js/images/marker-icon-green-x2.png'
 	}));
 	map = L.map('map').setView([48.858578, 2.351828], 12);
 
@@ -36,46 +36,9 @@ document.addEventListener("DOMContentLoaded", function() {
 			}, function(retour) {
 				var r = JSON.parse(retour);
 				var html = r.html;
-
-				/*// Changer de propositions :
-				html += '<div id="links">';
-					html += view_link(r.api, 'prev');
-					html += view_link(r.api, 'next');
-				html += '</div>';
-
-				// Afficher le trajet :
-				html += '<div id="journeys">';
-					html += view_journeys(r.api);
-				html += '</div>';*/
-
 				$('#journeys').html(html).removeClass('load');
 				map.invalidateSize();
 			});
 		//}
 	});
-
-
-			$('#journeys').html('').addClass('load');
-			navitia.journeys({
-				from : from.getId(),
-				to : to.getId(),
-				datetime : '20160209T0830'
-			}, function(retour) {
-				var r = JSON.parse(retour);
-				var html = r.html;
-
-				/*// Changer de propositions :
-				html += '<div id="links">';
-					html += view_link(r.api, 'prev');
-					html += view_link(r.api, 'next');
-				html += '</div>';
-
-				// Afficher le trajet :
-				html += '<div id="journeys">';
-					html += view_journeys(r.api);
-				html += '</div>';*/
-
-				$('#journeys').html(html).removeClass('load');
-				map.invalidateSize();
-			});
 });

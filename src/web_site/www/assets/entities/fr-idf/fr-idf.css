@@ -1,4 +1,4 @@
-.journeys.fr-idf .journey .sections div.section.network_METRO div.time span.icon::before {
+.journeys.fr-idf .journey .sections div.section.network_METRO span.icon::before {
 	content: '';
 	background-image: url('metro.svg');
 	background-size: 16px 16px;
@@ -7,7 +7,17 @@
 	display: inline-block;
 }
 
-.journeys.fr-idf .journey .sections div.section.network_METRO div.time span.icon::after {
+.journeys.fr-idf .journey .sections div.section.network_RER span.icon::before {
+	content: '';
+	background-image: url('rer.svg');
+	background-size: 16px 16px;
+	width: 16px;
+	height: 16px;
+	display: inline-block;
+}
+
+.journeys.fr-idf .journey .sections div.section.network_METRO span.icon::after,
+.journeys.fr-idf .journey .sections div.section.network_RER span.icon::after {
 	content: '';
 	background-size: 16px 16px;
 	width: 16px;
@@ -15,20 +25,26 @@
 	display: none;
 }
 
-.journeys.fr-idf .journey .sections div.section.network_METRO.code_1 div.time span.icon::after {background-image: url('1.svg'); display: inline-block;}
-.journeys.fr-idf .journey .sections div.section.network_METRO.code_2 div.time span.icon::after {background-image: url('2.svg'); display: inline-block;}
-.journeys.fr-idf .journey .sections div.section.network_METRO.code_3 div.time span.icon::after {background-image: url('3.svg'); display: inline-block;}
-.journeys.fr-idf .journey .sections div.section.network_METRO.code_3bis div.time span.icon::after {background-image: url('3bis.svg'); display: inline-block;}
-.journeys.fr-idf .journey .sections div.section.network_METRO.code_4 div.time span.icon::after {background-image: url('4.svg'); display: inline-block;}
-.journeys.fr-idf .journey .sections div.section.network_METRO.code_5 div.time span.icon::after {background-image: url('5.svg'); display: inline-block;}
-.journeys.fr-idf .journey .sections div.section.network_METRO.code_6 div.time span.icon::after {background-image: url('6.svg'); display: inline-block;}
-.journeys.fr-idf .journey .sections div.section.network_METRO.code_7 div.time span.icon::after {background-image: url('7.svg'); display: inline-block;}
-.journeys.fr-idf .journey .sections div.section.network_METRO.code_7bis div.time span.icon::after {background-image: url('7bis.svg'); display: inline-block;}
-.journeys.fr-idf .journey .sections div.section.network_METRO.code_8 div.time span.icon::after {background-image: url('8.svg'); display: inline-block;}
-.journeys.fr-idf .journey .sections div.section.network_METRO.code_9 div.time span.icon::after {background-image: url('9.svg'); display: inline-block;}
-.journeys.fr-idf .journey .sections div.section.network_METRO.code_10 div.time span.icon::after {background-image: url('10.svg'); display: inline-block;}
-.journeys.fr-idf .journey .sections div.section.network_METRO.code_11 div.time span.icon::after {background-image: url('11.svg'); display: inline-block;}
-.journeys.fr-idf .journey .sections div.section.network_METRO.code_12 div.time span.icon::after {background-image: url('12.svg'); display: inline-block;}
-.journeys.fr-idf .journey .sections div.section.network_METRO.code_13 div.time span.icon::after {background-image: url('13.svg'); display: inline-block;}
-.journeys.fr-idf .journey .sections div.section.network_METRO.code_14 div.time span.icon::after {background-image: url('14.svg'); display: inline-block;}
-.journeys.fr-idf .journey .sections div.section.network_METRO.code_15 div.time span.icon::after {background-image: url('15.svg'); display: inline-block;}
+.journeys.fr-idf .journey .sections div.section.network_METRO.code_1 span.icon::after {background-image: url('1.svg'); display: inline-block;}
+.journeys.fr-idf .journey .sections div.section.network_METRO.code_2 span.icon::after {background-image: url('2.svg'); display: inline-block;}
+.journeys.fr-idf .journey .sections div.section.network_METRO.code_3 span.icon::after {background-image: url('3.svg'); display: inline-block;}
+.journeys.fr-idf .journey .sections div.section.network_METRO.code_3bis span.icon::after {background-image: url('3bis.svg'); display: inline-block;}
+.journeys.fr-idf .journey .sections div.section.network_METRO.code_4 span.icon::after {background-image: url('4.svg'); display: inline-block;}
+.journeys.fr-idf .journey .sections div.section.network_METRO.code_5 span.icon::after {background-image: url('5.svg'); display: inline-block;}
+.journeys.fr-idf .journey .sections div.section.network_METRO.code_6 span.icon::after {background-image: url('6.svg'); display: inline-block;}
+.journeys.fr-idf .journey .sections div.section.network_METRO.code_7 span.icon::after {background-image: url('7.svg'); display: inline-block;}
+.journeys.fr-idf .journey .sections div.section.network_METRO.code_7bis span.icon::after {background-image: url('7bis.svg'); display: inline-block;}
+.journeys.fr-idf .journey .sections div.section.network_METRO.code_8 span.icon::after {background-image: url('8.svg'); display: inline-block;}
+.journeys.fr-idf .journey .sections div.section.network_METRO.code_9 span.icon::after {background-image: url('9.svg'); display: inline-block;}
+.journeys.fr-idf .journey .sections div.section.network_METRO.code_10 span.icon::after {background-image: url('10.svg'); display: inline-block;}
+.journeys.fr-idf .journey .sections div.section.network_METRO.code_11 span.icon::after {background-image: url('11.svg'); display: inline-block;}
+.journeys.fr-idf .journey .sections div.section.network_METRO.code_12 span.icon::after {background-image: url('12.svg'); display: inline-block;}
+.journeys.fr-idf .journey .sections div.section.network_METRO.code_13 span.icon::after {background-image: url('13.svg'); display: inline-block;}
+.journeys.fr-idf .journey .sections div.section.network_METRO.code_14 span.icon::after {background-image: url('14.svg'); display: inline-block;}
+.journeys.fr-idf .journey .sections div.section.network_METRO.code_15 span.icon::after {background-image: url('15.svg'); display: inline-block;}
+
+.journeys.fr-idf .journey .sections div.section.network_RER.code_A span.icon::after {background-image: url('a.svg'); display: inline-block;}
+.journeys.fr-idf .journey .sections div.section.network_RER.code_B span.icon::after {background-image: url('b.svg'); display: inline-block;}
+.journeys.fr-idf .journey .sections div.section.network_RER.code_C span.icon::after {background-image: url('c.svg'); display: inline-block;}
+.journeys.fr-idf .journey .sections div.section.network_RER.code_D span.icon::after {background-image: url('d.svg'); display: inline-block;}
+.journeys.fr-idf .journey .sections div.section.network_RER.code_E span.icon::after {background-image: url('e.svg'); display: inline-block;}

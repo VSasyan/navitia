@@ -22,7 +22,7 @@ class Journeys extends Hydrate {
 		LOADERS
 	**/
 	public function load_uri($uri) {
-		$uri = 'from=2.31021881104%3B48.8662580532&to=2.37064361572%3B48.8669355812&datetime=20160209T0830';
+		//$uri = 'from=2.31021881104%3B48.8662580532&to=2.37064361572%3B48.8669355812&datetime=20160209T0830';
 		$req = 'https://' . NAVITIA_KEY . '@api.navitia.io/v1/journeys?' . $uri;
 		$data = file_get_contents($req, false);
 		$api = json_decode($data, true);

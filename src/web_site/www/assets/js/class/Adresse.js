@@ -18,20 +18,16 @@ Adresse.prototype.getId = function() {
 	return this.id;
 };
 
-Adresse.prototype.setLatlng = function(latlng) {
+Adresse.prototype.setLatlng = function(latlon) {
 	var that = this;
-	that.latlng = latlng;
-	that.marker = L.marker(latlng, {icon: that.icon});
+	that.latlng = {lat : latlon.lat, lng : latlon.lng};
+	that.marker = L.marker(that.latlng, {icon: that.icon});
 	that.marker.addTo(map).bindPopup(that.label);
-	that.navitia.coord(latlng, function(retour) {
+	that.navitia.coord(that.latlng, function(retour) {
 		var r = JSON.parse(retour);
-		that.setId(r.api.address.id);
-		that.$input.val(r.api.address.label);
+		that.$input.val(r.api.name);
 		that.$div.removeClass('load');
 	});
 	that.$div.addClass('load');
-};
-
-Adresse.prototype.setId = function(id) {
-	this.id = id;
+	that.id = that.latlng.lng + ';' + that.latlng.lat;
 };
