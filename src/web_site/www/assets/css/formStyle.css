@@ -1,0 +1,72 @@
+#form, #map {
+	/*display: table-cell;*/
+}
+
+#form {
+	max-width: 600px;
+	text-align: center;
+	padding: 20px;
+	background-color: #eee;
+}
+
+#form div.hr {
+	border-top: 1px solid #aaa;
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+div.input, div.choice {
+	display: inline-table;
+	vertical-align: middle;
+	border-collapse: separate;
+}
+div.input>*, div.choice>* {
+	background-color: #fff;
+	color: #55595c;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	padding: 4px;
+	display: table-cell;
+}
+div.input>span {height: 21px;}
+div.input>input {text-align: left; height: 22px;}
+div.input>*:first-child, div.choice>*:first-child {
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+	border-right: 0;
+}
+div.input>*:not(:last-child):not(:first-child), div.choice>*:not(:last-child):not(:first-child) {
+	border-left: none;
+	border-right: none;
+	border-radius: 0;
+	width: auto;
+}
+div.input>*:last-child, div.choice>*:last-child {
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+	border-left: 0;
+}
+div.input>*:first-child, div.input>*:last-child:not(input) {width: 20px;}
+
+div.choice>*:hover, div.choice>*.selected {
+	cursor: pointer;
+	color: #000;
+	background-color: #ddf;
+}
+
+/*.input .icon i {position: absolute;}*/
+.input.adresse .localization i {display: none;}
+.input.adresse .localization::before {
+	content: '\f124';
+	font-family: 'FontAwesome';
+}
+.input.adresse .localization:hover {
+	color: #000;
+	cursor: pointer;
+}
+.input.adresse.loading .localization::before, .input.adresse.load .localization::before {content: '';}
+.input.adresse.loading .localization i, .input.adresse.load .localization i {display: inline-block;}
+.input#date input {width: 75px;}
+.input#time input {width: 40px;}
+
+div.search {text-align: center; padding-top: 15px;}

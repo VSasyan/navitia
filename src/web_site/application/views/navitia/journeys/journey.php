@@ -14,7 +14,7 @@ $html .= '<div class="journey">';
 			$html .= '<span class="second">de marche</span>';
 		$html .= '</p>';
 		if ($nb_transfers > 0) {
-		$html .= '<p class="transfert">';
+		$html .= '<p class="transfer">';
 			$html .= '<span class="main">' . $nb_transfers . '</span>';
 			$html .= '<span class="second">transfert' . ($nb_transfers > 1 ? 's' : '') . '</span>';
 		$html .= '</p>';
