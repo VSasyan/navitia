@@ -4,9 +4,9 @@ if ( ! function_exists('view_date_time()')) {
 	function date_time($dt, $precision = false, $duration = 0) {
 		$time = '';
 		if ($duration < 86400) {
-			$time = intval(substr($dt, 9, 2)) . ':' . intval(substr($dt, 11, 2)) . ($precision ? ':' . intval(substr($dt, 13, 2)) : '');
+			$time = intval(substr($dt, 9, 2)) . ':' . substr($dt, 11, 2) . ($precision ? ':' . substr($dt, 13, 2) : '');
 		} else {
-			$time = intval(substr($dt, 6, 4)) . ' ' . view_month(substr($dt, 4, 2)) . ' à ' . intval(substr($dt, 9, 2)) . ':' . intval(substr($dt, 11, 2)) . ($precision ? ':' . intval(substr($dt, 13, 2)) : '');			
+			$time = intval(substr($dt, 6, 4)) . ' ' . view_month(substr($dt, 4, 2)) . ' à ' . intval(substr($dt, 9, 2)) . ':' . substr($dt, 11, 2) . ($precision ? ':' . substr($dt, 13, 2) : '');			
 		}
 		return $time;
 	}
@@ -41,10 +41,10 @@ if(!function_exists('duration')){
 			$values[$i] = $t;
 		}
 		$r = '';
-		$r .= ($values[0] > 1 ? $values[0] . ' jours ' : '');
-		$r .= ($values[1] > 1 ? $values[1] . ' h ' : '');
+		$r .= ($values[0] > 0 ? $values[0] . ' jours ' : '');
+		$r .= ($values[1] > 0 ? $values[1] . ' h ' : '');
 		if ($precision === true) {
-			$r .= ($values[2] > 1 ? $values[2] . ' min ' : '');
+			$r .= ($values[2] > 0 ? $values[2] . ' min ' : '');
 			$r .= $values[2] . ' s';
 		} else {
 			$r .= ceil($values[2] + $values[3] / 60) . ' min';

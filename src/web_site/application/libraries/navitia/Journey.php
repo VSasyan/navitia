@@ -70,10 +70,16 @@ class Journey extends Hydrate {
 			$section = new Section();
 			$section->load_api($s);
 		}
-		if ($section->getMode() == 'walking') {
+		if ($section->getMode() == 'walking' || $section->getTransferType() == 'walking') {
 			$this->duration_walking += $section->getDuration();
 		}
-		$this->sections[] = $section;
+		if ($section->getType() == 'waiting') {
+			// Previous section get a waiting_duration :
+			$this->sections[count($this->sections) - 1]->addWaitingDuration($section->getDuration());
+		} else {
+			// We add the section :
+			$this->sections[] = $section;
+		}
 	}
 
 	/**

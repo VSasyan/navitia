@@ -7,6 +7,7 @@ class Section extends Hydrate {
 	protected $type = 'public_transport';
 	protected $mode = 'none';
 	protected $duration = 0;
+	protected $waitingDuration = 0;
 	protected $departure_date_time = 0;
 	protected $arrival_date_time = 0;
 	protected $from;
@@ -40,15 +41,15 @@ class Section extends Hydrate {
 	public function load_api($api) {
 		$this->setType($api['type']);
 		if (array_key_exists('mode', $api)) {$this->setMode($api['mode']);}
-		$this->setDuration($api['duration']);
-		$this->setDeparture_date_time($api['departure_date_time']);
-		$this->setArrival_date_time($api['arrival_date_time']);
-		$this->setFrom($api['from'], 'api');
-		$this->setTo($api['to'], 'api');
+		if (array_key_exists('duration', $api)) {$this->setDuration($api['duration']);}
+		if (array_key_exists('departure_date_time', $api)) {$this->setDeparture_date_time($api['departure_date_time']);}
+		if (array_key_exists('arrival_date_time', $api)) {$this->setArrival_date_time($api['arrival_date_time']);}
+		if (array_key_exists('from', $api)) {$this->setFrom($api['from'], 'api');} else {$this->setFrom(new Position());}
+		if (array_key_exists('to', $api)) {$this->setTo($api['to'], 'api');} else {$this->setTo(new Position());}
 		foreach ($api['links'] as $link) {
 			$this->links[] = $link;
 		}
-		$this->setGeojson($api['geojson']);
+		if (array_key_exists('geojson', $api)) {$this->setGeojson($api['geojson']);}
 		if (array_key_exists('transfer_type', $api)) {$this->setTransferType($api['transfer_type']);}
 		if (array_key_exists('stop_date_times', $api)) {$this->setStop_date_times($api['stop_date_times']);}
 		if (array_key_exists('display_informations', $api)) {$this->setDisplayInformations($api['display_informations'], 'api');}
@@ -68,6 +69,10 @@ class Section extends Hydrate {
 
 	public function setDuration($duration) {
 		$this->duration = $duration;
+	}
+
+	public function setWaitingDuration($waitingDuration) {
+		$this->waitingDuration = $waitingDuration;
 	}
 
 	public function setDeparture_date_time($departure_date_time) {
@@ -129,6 +134,13 @@ class Section extends Hydrate {
 	}
 
 	/**
+		ADDERS
+	**/
+	public function addWaitingDuration($waitingDuration) {
+		$this->waitingDuration += $waitingDuration;
+	}
+
+	/**
 		GETTERS
 	**/
 	public function getType() {
@@ -141,6 +153,10 @@ class Section extends Hydrate {
 
 	public function getDuration() {
 		return $this->duration;
+	}
+
+	public function getWaitingDuration() {
+		return $this->waitingDuration;
 	}
 
 	public function getDeparture_date_time() {
@@ -191,6 +207,7 @@ class Section extends Hydrate {
 			'type' => $this->type,
 			'mode' => $this->mode,
 			'duration' => $this->duration,
+			'waitingDuration' => $this->waitingDuration,
 			'departure_date_time' => $this->departure_date_time,
 			'arrival_date_time' => $this->arrival_date_time,
 			'from' => $this->from->getJSON(),

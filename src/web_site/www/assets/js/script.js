@@ -41,4 +41,10 @@ document.addEventListener("DOMContentLoaded", function() {
 			});
 		//}
 	});
+
+	marker.on("drag", function(e) {
+		var marker = e.target;
+		var position = marker.getLatLng();
+		map.panTo(new L.LatLng(position.lat, position.lng));
+	});
 });

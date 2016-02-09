@@ -40,7 +40,7 @@ class Navitia extends CI_Controller {
 		$this->load->library('navitia/Journey');
 		$this->load->library('navitia/DisplayInformations');
 		$this->load->library('navitia/Section');
-		$this->load->helper('journeys');
+		$this->load->helper('view_journeys');
 
 		$uri = array_uri(json_decode(base64_decode($b64, true)));
 
