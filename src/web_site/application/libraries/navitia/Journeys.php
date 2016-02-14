@@ -21,7 +21,7 @@ class Journeys extends Hydrate {
 	/**
 		LOADERS
 	**/
-	public function load_uri($uri) {
+	public function load_uri($uri, $order_by = 'duration') {
 		//$uri = 'from=2.31021881104%3B48.8662580532&to=2.37064361572%3B48.8669355812&datetime=20160209T0830';
 		$req = 'https://' . NAVITIA_KEY . '@api.navitia.io/v1/journeys?' . $uri;
 		//echo($req);
@@ -39,6 +39,8 @@ class Journeys extends Hydrate {
 		foreach ($api['feed_publishers'] as $p) {
 			$this->publishers[] = $p['id'];
 		}
+		// Order journeys by :
+		usort($this->journeys, "order_by_" . $order_by);
 	}
 
 	/**
@@ -91,6 +93,21 @@ class Journeys extends Hydrate {
 	public function toJSON() {
 		return json_encode($this->getJSON());
 	}
+}
+
+function order_by_duration($a, $b) {
+    if ($a->getDuration() == $b->getDuration()) {return 0;}
+    return ($a->getDuration() < $b->getDuration()) ? -1 : 1;
+}
+
+function order_by_walking($a, $b) {
+    if ($a->getDuration_walking() == $b->getDuration_walking()) {return 0;}
+    return ($a->getDuration_walking() < $b->getDuration_walking()) ? -1 : 1;
+}
+
+function order_by_transfer($a, $b) {
+    if ($a->getNb_transfers() == $b->getNb_transfers()) {return 0;}
+    return ($a->getNb_transfers() < $b->getNb_transfers()) ? -1 : 1;
 }
 
 ?>

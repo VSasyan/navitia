@@ -13,9 +13,9 @@ Navitia.prototype.coord = function(latlng, callback) {
 	});
 };
 
-Navitia.prototype.journeys = function(params, callback) {
+Navitia.prototype.journeys = function(params, order_by, callback) {
 	//	https://api.navitia.io/v1/journeys?from={resource_id_1}&to={resource_id_2}&datetime={date_time_to_leave}
-	var url = this.proxy + 'journeys/' + btoa(JSON.stringify(params));
+	var url = this.proxy + 'journeys/' + btoa(JSON.stringify(params)) + '/' + order_by;
 	console.log(url);
 	$.get({
 		url : url,

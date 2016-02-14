@@ -1,6 +1,7 @@
 /* http://colorschemedesigner.com/csd-3.5/#3x11Tw0w0w0w0 */
-html {
+html, body {
 	font-family: 'Roboto';
+	margin: 0;
 }
 
 section {
@@ -11,5 +12,18 @@ section {
 
 #map {
 	height: 400px;
-	margin-top: 20px;
+	width: 100%;
+}
+
+div.table {display: inline-table; width: 100%;}
+div.table>div {display: table-cell; vertical-align: top;}
+
+@media handheld, only screen and (max-width: 800px) {
+	#results_map {
+		display: block;
+	}
+	#results_map>div {
+		display: block;
+		width: 100%;
+	}
 }

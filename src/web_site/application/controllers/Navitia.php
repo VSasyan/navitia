@@ -32,7 +32,7 @@ class Navitia extends CI_Controller {
 	/**
 	 * Journeys request
 	 */
-	public function journeys($b64) {
+	public function journeys($b64, $order_by = 'duration') {
 		$this->load->library('navitia/Hydrate');
 		$this->load->library('navitia/Coord');
 		$this->load->library('navitia/Position');
@@ -45,7 +45,7 @@ class Navitia extends CI_Controller {
 		$uri = array_uri(json_decode(base64_decode($b64, true)));
 
 		$journeys = new Journeys();
-		$journeys->load_uri($uri);
+		$journeys->load_uri($uri, $order_by);
 
 		$journeys_json = $journeys->getJSON();
 

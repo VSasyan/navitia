@@ -7,7 +7,9 @@
 class Position extends Hydrate {
 	protected $name = "";
 	protected $coord;
-	protected $region = "";
+	protected $id;
+	protected $regions = array();
+	protected $administration = "";
 
 	/**
 		CONSTRUCTOR
@@ -46,19 +48,21 @@ class Position extends Hydrate {
 			$params = array(
 				'name' => ($hn != 0 ? $hn . ', ' : '') . $api['address']['name'],
 				'coord' => new Coord($api['address']['coord']),
-				'region' => $api['address']['administrative_regions'][0]['name'],
+				'administration' => $api['address']['administrative_regions'][0]['name'],
 				'id' => $api['id']
 			);
 		} elseif ($type == 'stop_point') {
 			$params = array(
 				'name' => $api['stop_point']['name'],
 				'coord' => new Coord($api['stop_point']['coord']),
-				'region' => $api['stop_point']['administrative_regions'][0]['name'],
+				'administration' => $api['stop_point']['administrative_regions'][0]['name'],
 				'id' => $api['id']
 			);
 		} else {return false;}
 
 		$this->hydrate($params);
+
+		if (array_key_exists('regions', $api)) {$this->setRegions($api['regions']);}
 	}
 
 	/**
@@ -72,8 +76,16 @@ class Position extends Hydrate {
 		$this->coord = $coord;
 	}
 
-	public function setRegion($region) {
-		$this->region = $region;
+	public function setAdministration($administration) {
+		$this->administration = $administration;
+	}
+
+	public function setRegions($regions) {
+		$this->regions = $regions;
+	}
+
+	public function setId($id) {
+		$this->id = $id;
 	}
 
 	/**
@@ -87,8 +99,16 @@ class Position extends Hydrate {
 		return $this->coord;
 	}
 
-	public function getRegion() {
-		return $this->region;
+	public function getAdministration() {
+		return $this->administration;
+	}
+
+	public function getRegions() {
+		return $this->regions;
+	}
+
+	public function getId() {
+		return $this->id;
 	}
 
 	/**
@@ -98,7 +118,9 @@ class Position extends Hydrate {
 		return array(
 			'name' => $this->name,
 			'coord' => $this->coord,
-			'region' => $this->region
+			'administration' => $this->administration,
+			'regions' => $this->regions,
+			'id' => $this->id
 		);
 	}
 

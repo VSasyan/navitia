@@ -1,12 +1,9 @@
-#form, #map {
-	/*display: table-cell;*/
-}
-
 #form {
 	max-width: 600px;
 	text-align: center;
 	padding: 20px;
 	background-color: #eee;
+	margin: auto;
 }
 
 #form div.hr {
@@ -55,17 +52,17 @@ div.choice>*:hover, div.choice>*.selected {
 }
 
 /*.input .icon i {position: absolute;}*/
-.input.adresse .localization i {display: none;}
-.input.adresse .localization::before {
+.input.address .localization i {display: none;}
+.input.address .localization::before {
 	content: '\f124';
 	font-family: 'FontAwesome';
 }
-.input.adresse .localization:hover {
+.input.address .localization:hover {
 	color: #000;
 	cursor: pointer;
 }
-.input.adresse.loading .localization::before, .input.adresse.load .localization::before {content: '';}
-.input.adresse.loading .localization i, .input.adresse.load .localization i {display: inline-block;}
+.input.address.loading .localization::before, .input.address.load .localization::before {content: '';}
+.input.address.loading .localization i, .input.address.load .localization i {display: inline-block;}
 .input#date input {width: 75px;}
 .input#time input {width: 40px;}
 

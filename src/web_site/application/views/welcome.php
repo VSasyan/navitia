@@ -17,7 +17,8 @@
 		<script type="text/javascript" src="<?php echo asset_url();?>js/script.js"></script>
 		<script type="text/javascript" src="<?php echo asset_url();?>js/form.js"></script>
 		<script type="text/javascript" src="<?php echo asset_url();?>js/class/Navitia.js"></script>
-		<script type="text/javascript" src="<?php echo asset_url();?>js/class/Adresse.js"></script>
+		<script type="text/javascript" src="<?php echo asset_url();?>js/class/Position.js"></script>
+		<script type="text/javascript" src="<?php echo asset_url();?>js/class/Journeys.js"></script>
 		<script type="text/javascript" src="<?php echo asset_url();?>js/view/journeys.js"></script>
 	</head>
 	<body>
@@ -26,13 +27,13 @@
 		</section>
 		<section>
 			<div id="form">
-				<div class="adresse input" id="from">
+				<div class="address input" id="from">
 					<span class="icon">De</span>
 					<input value="" placeholder="Station, lieu, adresse" />
 					<span class="localization"><i class="fa fa-spinner fa-pulse"></i></span>
 				</div>
 
-				<div class="adresse input" id="to">
+				<div class="address input" id="to">
 					<span class="icon">À</span>
 					<input value="" placeholder="Station, lieu, adresse" />
 					<span class="localization"><i class="fa fa-spinner fa-pulse"></i></span>
@@ -42,6 +43,7 @@
 
 				<div class="choice" data-value="" id="datetime_represents">
 					<span data-value="departure">Départ</span>
+					<input type="hidden" value="">
 					<span data-value="arrival">Arrivée</span>
 				</div>
 
@@ -59,16 +61,19 @@
 
 				<div class="choice" data-value="" id="order_by">
 					<span data-value="duration" title="Préférer les trajets les plus courts">Durée</span>
+					<input type="hidden" value="">
 					<span data-value="walking" title="Préférer les trajets avec le moins de marche">Marche</span>
-					<span data-value="trasnfer" title="Préférer les trajets avec le moins de transfert(s)">Transfert</span>
+					<span data-value="transfer" title="Préférer les trajets avec le moins de transfert(s)">Transfert</span>
 				</div>
 
 				<div class="search">
 					<button id="go">Chercher</button>
 				</div>
 			</div>
-			<div id="journeys"></div>
-			<div id="map"></div>
+			<div class="table" id="results_map">
+				<div id="journeys"></div>
+				<div id="map"></div>
+			</div>
 		</section>
 	</body>
 </html>
