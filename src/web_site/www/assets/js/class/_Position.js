@@ -1,4 +1,5 @@
-var Position = function(options) {
+var Position_ = function(options) {
+	console.log(options);
 	this.navitia = options.navitia;
 	this.map = options.map;
 	this.name = options.name;
@@ -12,29 +13,29 @@ var Position = function(options) {
 	//console.log(this);
 };
 
-Position.prototype.getLatLng = function() {
+Position_.prototype.getLatLng = function() {
 	if (this.api) {
 		return new L.LatLng(this.api.coord.lat, this.api.coord.lon);
 	} else {return false;}
 };
 
-Position.prototype.getCoord = function() {
+Position_.prototype.getCoord = function() {
 	if (this.api) {return this.api.coord;} else {return false;}
 };
 
-Position.prototype.getId = function() {
+Position_.prototype.getId = function() {
 	if (this.api) {return this.api.id;} else {return false;}
 };
 
-Position.prototype.getRegions = function() {
+Position_.prototype.getRegions = function() {
 	if (this.api) {return this.api.regions;} else {return false;}
 };
 
-Position.prototype.getApi = function() {
+Position_.prototype.getApi = function() {
 	return this.api;
 };
 
-Position.prototype.loadLatlng = function(latlon) {
+Position_.prototype.loadLatlng = function(latlon) {
 	var that = this;
 	that.$div.addClass('load');
 	latlng = {lat : latlon.lat, lng : latlon.lng};

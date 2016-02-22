@@ -7,7 +7,7 @@ $color = $displayInformations['color'];
 
 $html = '';
 
-$html .= '<div class="section public_transport ' . $network . ' ' . $code . '" data-color="' . $color . '" data-label="' . $label . '">';
+$html .= '<div class="section public_transport ' . $network . ' ' . $code . '" data-color="' . $color . '" data-label="' . $label . '" data-nb="' . $nb_section . '">';
 
 	$html .= '<div class="row begin">';
 		$html .= '<div class="cell">';

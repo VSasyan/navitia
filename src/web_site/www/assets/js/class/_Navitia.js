@@ -1,8 +1,8 @@
-var Navitia = function(proxy) {
+var Navitia_ = function(proxy) {
    this.proxy = proxy; // requete.php?r=
 };
 
-Navitia.prototype.coord = function(latlng, callback) {
+Navitia_.prototype.coord = function(latlng, callback) {
 	// https://api.navitia.io/v1/coord/{lat};{lng}
 	//var url = this.proxy + encodeURIComponent('coord/' + latlng.lng + ';' + latlng.lat);
 	var url = this.proxy + 'position/' + latlng.lng + ';' + latlng.lat;
@@ -13,7 +13,7 @@ Navitia.prototype.coord = function(latlng, callback) {
 	});
 };
 
-Navitia.prototype.journeys = function(params, order_by, callback) {
+Navitia_.prototype.journeys = function(params, order_by, callback) {
 	//	https://api.navitia.io/v1/journeys?from={resource_id_1}&to={resource_id_2}&datetime={date_time_to_leave}
 	var url = this.proxy + 'journeys/' + btoa(JSON.stringify(params)) + '/' + order_by;
 	console.log(url);

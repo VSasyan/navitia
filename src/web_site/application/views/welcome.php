@@ -16,10 +16,15 @@
 		<script typz="text/javascript" src="<?php echo asset_url();?>js/leaflet.js"></script>
 		<script type="text/javascript" src="<?php echo asset_url();?>js/script.js"></script>
 		<script type="text/javascript" src="<?php echo asset_url();?>js/form.js"></script>
-		<script type="text/javascript" src="<?php echo asset_url();?>js/class/Navitia.js"></script>
-		<script type="text/javascript" src="<?php echo asset_url();?>js/class/Position.js"></script>
-		<script type="text/javascript" src="<?php echo asset_url();?>js/class/Journeys.js"></script>
-		<script type="text/javascript" src="<?php echo asset_url();?>js/view/journeys.js"></script>
+		<script type="text/javascript" src="<?php echo asset_url();?>js/class/_Position.js"></script>
+		<script type="text/javascript" src="<?php echo asset_url();?>js/class/_Navitia.js"></script>
+		<script type="text/javascript" src="<?php echo asset_url();?>js/Navitia/Navitia.js"></script>
+		<script type="text/javascript" src="<?php echo asset_url();?>js/Navitia/Journeys.js"></script>
+		<script type="text/javascript" src="<?php echo asset_url();?>js/Navitia/Journey.js"></script>
+		<script type="text/javascript" src="<?php echo asset_url();?>js/Navitia/Section.js"></script>
+		<script type="text/javascript" src="<?php echo asset_url();?>js/Navitia/Position.js"></script>
+		<script type="text/javascript" src="<?php echo asset_url();?>js/Navitia/Coord.js"></script>
+		<script type="text/javascript" src="<?php echo asset_url();?>js/Navitia/DisplayInformations.js"></script>
 	</head>
 	<body>
 		<section>

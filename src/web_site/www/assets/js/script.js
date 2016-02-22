@@ -1,10 +1,11 @@
 var journeys;
 
 document.addEventListener("DOMContentLoaded", function() {
-	var navitia = new Navitia('http://localhost/navitia/index.php/navitia/');
+	var navitia_ = new Navitia_('http://localhost/navitia/index.php/navitia/');
 	var map = L.map('map').setView([48.858578, 2.351828], 12);
 	var options = {
-		navitia : navitia,
+		proxy : 'http://localhost/navitia/index.php/navitia/',
+		navitia_ : navitia_,
 		map : map,
 		from : '.address#from',
 		to : '.address#to',
@@ -15,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function() {
 		go : '#go',
 		results : '#journeys'
 	};
-	journeys = new Journeys(options);
+	journeys = new Navitia(options);
 
 	L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
 		attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'

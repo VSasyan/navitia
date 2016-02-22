@@ -5,7 +5,7 @@ $html = '';
 $label = 'Correspondance à ' . $to['name'];
 $color = '333333';
 
-$html .= '<div class="section transfert ' . $transferType . ' " data-color="' . $color . '">';
+$html .= '<div class="section transfert ' . $transferType . ' " data-color="' . $color . '" data-nb="' . $nb_section . '">';
 
 	$html .= '<div class="row begin">';
 		$html .= '<div class="cell">';

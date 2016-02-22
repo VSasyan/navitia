@@ -8,7 +8,7 @@ if ($mode == 'walking') {
 	$label = 'Aller jusqu\'à ' . $to['name'];
 	$color = '333333';
 
-	$html .= '<div class="section walking ' . $network . ' ' . $code . '" data-color="' . $color . '" data-label="' . $label . '">';
+	$html .= '<div class="section walking ' . $network . ' ' . $code . '" data-color="' . $color . '" data-label="' . $label . '" data-nb="' . $nb_section . '">';
 
 		$html .= '<div class="row begin">';
 			$html .= '<div class="cell">';

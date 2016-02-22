@@ -2,7 +2,7 @@
 
 $html = '';
 
-$html .= '<div class="journey">';
+$html .= '<div class="journey" data-nb="' . $nb_journey . '">';
 
 	$html .= '<div class="sumup">';
 		$html .= '<p class="time">';
