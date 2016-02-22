@@ -16,8 +16,8 @@ var Journeys = function(options) {
 		label : 'Arrivée',
 		div : options.to,
 		icon : L.icon({
-			iconUrl: 'http://localhost/navitia/assets/js/images/marker-icon-red.png',
-			iconRetinaUrl: 'http://localhost/navitia/assets/js/images/marker-icon-red-x2.png'
+			iconUrl: uri_server + 'assets/js/images/marker-icon-red.png',
+			iconRetinaUrl: uri_server + 'assets/js/images/marker-icon-red-x2.png'
 		})
 	};
 	this.to = new Position(params);
@@ -29,8 +29,8 @@ var Journeys = function(options) {
 		label : 'Départ',
 		div : options.from,
 		icon : L.icon({
-			iconUrl: 'http://localhost/navitia/assets/js/images/marker-icon-green.png',
-			iconRetinaUrl: 'http://localhost/navitia/assets/js/images/marker-icon-green-x2.png'
+			iconUrl: uri_server + 'assets/js/images/marker-icon-green.png',
+			iconRetinaUrl: uri_server + 'assets/js/images/marker-icon-green-x2.png'
 		})
 	};
 	this.from = new Position(params);

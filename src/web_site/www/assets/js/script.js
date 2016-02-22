@@ -1,4 +1,5 @@
 var journeys;
+var uri_server = 'http://localhost/navitia/';
 
 document.addEventListener("DOMContentLoaded", function() {
 	var navitia_ = new Navitia_('http://localhost/navitia/index.php/navitia/');
@@ -26,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 	if (navigator.geolocation) {
 		navigator.geolocation.getCurrentPosition(function(e) {
-			//journeys.getCurrentPosition(e);
+			journeys.getCurrentPosition(e);
 		});
 	}
 });
